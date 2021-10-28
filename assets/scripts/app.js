@@ -1,46 +1,15 @@
-// const backdropElement = document.getElementById('backdrop');
-// const modalLinkElements = document.querySelectorAll('.info-modal');
-// let infoModal;
 
-// function toggleBackdrop() {
-//   backdropElement.classList.toggle('visible');
-// }
+// let age = 30;
+// alert(age);
 
-// function presentInfoModal(event) {
-//   const text = event.target.dataset.text;
-//   toggleBackdrop();
-//   infoModal = document.createElement('div');
-//   infoModal.classList.add('modal');
-//   infoModal.innerHTML = `
-//     <h2>More Details</h2>
-//     <p>${text}</p>
-//   `;
-//   const closeButton = document.createElement('button');
-//   closeButton.addEventListener('click', hideInfoModal);
-//   closeButton.textContent = 'Okay';
-//   infoModal.appendChild(closeButton);
-//   document.body.appendChild(infoModal);
-// }
-
-// function hideInfoModal() {
-//   toggleBackdrop();
-//   document.body.removeChild(infoModal);
-// }
-
-// for (const linkElement of modalLinkElements) {
-//   linkElement.addEventListener('click', presentInfoModal);
-// }
-
-// backdropElement.addEventListener('click', hideInfoModal);
+// alert(40);
 
 
-let age = 30;
-alert(age);
+const defaultResult = 0;
+let currentResult = defaultResult;
 
-alert(40);
+currentResult = (currentResult + 10) * 3 / 2 - 1;
 
+let calculationDescription = '(' + defaultResult + ' + 10) * 3 / 2 - 1';
 
-let currentResult = 0;
- currentResult = (currentResult + 10) * 3/2 - 1;
-
- otputResult(currentResult, '');
+outputResult(currentResult, calculationDescription);
