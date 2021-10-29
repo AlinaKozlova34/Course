@@ -1,6 +1,7 @@
 
 const defaultResult = 0;
 let currentResult = defaultResult;
+let logEntries = [];
 
 
 function getUserInput() {
@@ -13,6 +14,25 @@ function createAndWriteOutput(operator, resultBefore, calcNumber){
     outputResult(currentResult, calcDescription);
 }
 
+
+
+
+function writeToLog (
+    operationIdentifier, 
+    prevResult, 
+    operationNumver,
+    newResult ) {
+        const logEntry = {
+            operation: operationIdentifier,
+            prevResult: prevResult,
+            number: operationNumver,
+            result: newResult
+        };
+        logEntries.push(logEntry);
+        console.log(logEntries);
+        
+}
+
 // function add() {
 //     const enterNum = getUserInput();
 //     const calcDescription = `${currentResult} + ${enterNum}`;
@@ -23,14 +43,37 @@ function createAndWriteOutput(operator, resultBefore, calcNumber){
 // }
 
 
+// function add() {
+//     const enterNum = getUserInput();
+//     const initialNum = currentResult;
+//     currentResult = currentResult + enterNum;
+//     createAndWriteOutput('+', initialNum, enterNum);
+//     // alert('The result is' + result);
+//     // return result;
+// }
+
+
 function add() {
-    const enterNum = getUserInput();
-    const initialNum = currentResult;
-    currentResult = currentResult + enterNum;
-    createAndWriteOutput('+', initialNum, enterNum);
-    // alert('The result is' + result);
-    // return result;
-}
+        const enterNum = getUserInput();
+        const initialNum = currentResult;
+        currentResult += enterNum;
+        // currentResult--;
+        // currentResult++;
+        // ++currentResult;
+        // --currentResult;
+        // alert(++currentResult)
+        createAndWriteOutput('+', initialNum, enterNum);
+        // const logEntry = {
+        //     operation: 'ADD',
+        //     prevResult: initialNum,
+        //     number: enterNum,
+        //     result: currentResult
+        // };
+        // logEntries.push(logEntry);
+        // comsole.log(logEntry.operation);
+        // console.log(logEntries[1]);
+        writeToLog('ADD', initialNum, enterNum, currentResult);
+    }
 
 
 
@@ -38,8 +81,10 @@ function add() {
 function subtract() {
     const enterNum = getUserInput();
     const initialNum = currentResult;
-    currentResult = currentResult - enterNum;
+    // currentResult = currentResult - enterNum;
+    currentResult -= enterNum;
     createAndWriteOutput('-', initialNum, enterNum);
+    writeToLog('SUBTRACT', initialNum, enterNum, currentResult);
 }
 
 
@@ -48,6 +93,7 @@ function multiply() {
     const initialNum = currentResult;
     currentResult = currentResult * enterNum;
     createAndWriteOutput('*', initialNum, enterNum);
+    writeToLog('MULTYPLY', initialNum, enterNum, currentResult);
 }
 
 
@@ -56,6 +102,7 @@ function divide() {
     const initialNum = currentResult;
     currentResult = currentResult / enterNum;
     createAndWriteOutput('/', initialNum, enterNum);
+    writeToLog('DIVIDE', initialNum, enterNum, currentResult);
 }
 
 addBtn.addEventListener('click', add);
